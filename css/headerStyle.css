@@ -20,6 +20,10 @@
     border-color: white;
     border-width: 2px 0px 2px 0px;
   }
+  a {
+    color: white;
+    text-decoration: none;
+  }
   h1 {
     font-family: 'Comfortaa', cursive;
     padding: 0px 0px 0px 20px;
