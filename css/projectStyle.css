@@ -11,7 +11,17 @@
    path:hover {
      //stroke-width: 7px;   //done in js
    }
-   svg {
+   div#narrative {
+     width: 800px;
+     margin: 5px 0px 0px 0px;
+     color: seashell;
+     padding: 0px 15px 0px 15px;
+     text-align: justify;
+     text-justify: inter-word;
+     box-sizing: border-box;
+     font-family: Verdana, Arial;
+   }
+   svg, div#narrative {
      background-color: black;
      display: block;
      margin-left: auto;
@@ -22,13 +32,17 @@
      font-family: Arial;
      //font-size: 10px;
    }
-  .displaybox {
-    fill: steelblue;
-    stroke: black;
-    stroke-width: 0;
-    opacity: 0;  //starting value
-  }
-  svg text {
-    fill: white;
-  }
+   div#narrative a {
+     color: steelblue;
+     text-decoration: underline; 
+   }
+   .displaybox {
+     fill: steelblue;
+     stroke: black;
+     stroke-width: 0;
+     opacity: 0;  //starting value
+   }
+   svg text {
+     fill: white;
+   }
 </style>

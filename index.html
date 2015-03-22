@@ -1,10 +1,7 @@
-<!--TODO: 
-1) Two views - by milemarker (line chart), by geography (map). 
+<!--TODO: 1) Two views - by milemarker (line chart), by geography (map). 
      A button with a cross-fade effect between two views.
      Would need to organize segments by mile-marker on thruway (not in dataset)
-     Can I join into the object by RCID?
-2) zoom and pan feature
--->
+2) zoom and pan feature -->
 <!DOCTYPE html>
 <html lang="en"><head>
 <title>NYS Thurway Traffic</title>
@@ -22,7 +19,14 @@
   </h1>
 </div>
 <!--End of Common Header-->
+<div id="projectDiv"></div>
+<div id="narrative">
+<p>The New York State Thruway serves hundreds of thousands of travelers daily. Some use it to travel clear across the state, while others commute to work on it. The Thruway Authority charges tolls for most, but not all, of the Thruway's road sections. The two areas of the map that quickly call attention are the red-highlighted road sections in Buffalo and near the Tappan Zee Bridge. Both of these Thruway sections receive over 100,000 vehicles daily. Not coincidentally, both of these sections also have no toll charge and are probably heavily used by commuters.<p> 
 
+<p>This map makes clear that the New York State Thruway disproportionately serves intracity travel WITHIN New York State. Almost all of New York State's major cities are located on or near the Thruway, and the travel volume falls significantly at the western frontier (near Lakewood, NY), where there are no major New York cities.</p>     
+
+<p>The NYS Department of Transportation already makes <a href="https://www.dot.ny.gov/tdv">a similar map available</a> on their website, where they also provide <a href="https://www.dot.ny.gov/divisions/engineering/technical-services/highway-data-services/hdsb">the data</a> used in this project.</p>
+</div>
 <p></p>
 </body>
 <script src="lib/d3.js"></script>
@@ -33,7 +37,7 @@ var height = 480;
 var ls = 6;   //baseline linestroke size
 
 //create the svg element
-var svg = d3.select("body").append("svg")
+var svg = d3.select("#projectDiv").append("svg")
     .attr("height", height)
     .attr("width", width)
 
@@ -99,12 +103,12 @@ d3.json("data/thruway_aadt.json", function(error, nys) {
       .attr("x", width / 7).attr("y", 50)
       .text("Daily Traffic Volume on the New York State Thruway, 2012")
       .attr("class", "svg_title")
-      .style("font-size", "25");
+      .style("font-size", "25px");
   svg.append("text")
       .attr("x", width / 3).attr("y", 50 + 25)
       .text("Roll Mouse over Highway Sections for more Info")
       .attr("class", "svg_subtitle")
-      .style("font-size", "15");
+      .style("font-size", "15px");
 
   //tooltip information about each segment
   //FIXME: Problem with display box and text clearing when I go from one element directly to another.
@@ -166,19 +170,19 @@ d3.json("data/thruway_aadt.json", function(error, nys) {
     .text("Thousand Daily Vehicles")
     .attr("x", legendX - 10)
     .attr("y", legendY - boxHeight)
-    .attr("font-size", 12);
+    .attr("font-size", "12px");
   //beginning of the scale
   g.append("text")
     .text("20")
     .attr("x", legendX + 0.7 * boxWidth)
     .attr("y", legendY + 3 * boxHeight)
-    .attr("font-size", 10);
+    .attr("font-size", "10px");
   //upper end of the scale
   g.append("text")
     .text("100")
     .attr("x", legendX + 4.5 * boxWidth)
     .attr("y", legendY + 3 * boxHeight)
-    .attr("font-size", 10);
+    .attr("font-size", "10px");
 
   //reposition the map within svg element
   g.attr("transform", "translate(30,0)")
